@@ -1,0 +1,88 @@
+.posts {
+  flex: 9;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.posts .post {
+  width: calc(50% - 20px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.posts h1 {
+  font-family: "Pacifico", cursive;
+}
+
+.posts img {
+  border-radius: 10px;
+  margin-bottom: 5px;
+  height: 300px;
+  object-fit: cover; /* Görsel bozulmaz.Kutunun tamamı dolar.Taşan kısımlar kırpılır*/
+}
+
+.posts p {
+  font-family: "Arvo", serif;
+  padding: 5px;
+  overflow: hidden; /* İçerik, belirlenen kutunun (container) dışına taşarsa, taşan kısmı gizler */
+  text-overflow: ellipsis; /* Metin taşarsa sonuna ... ekler. */
+  display: -webkit-box; /* Metni kutuya benzer bir yapıya sokar, böylece satır sınırlandırması yapılabilir. */
+  line-clamp: 4;
+  -webkit-line-clamp: 4; /* Sadece 4 satır göster, sonrası görünmesin anlamına gelir. */
+  -webkit-box-orient: vertical; /* -webkit-box kutusunun dikey (vertical) yönde hizalanmasını sağlar.Bu olmadan line-clamp işe yaramaz. */
+  line-height: 23px;
+}
+
+.posts .authorAndDate {
+  font-family: "Arvo", serif;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.posts .authorAndDate span:nth-child(1) {
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+}
+
+.posts .authorAndDate span:nth-child(2) {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+}
+
+/* Scroll Animations */
+
+.posts .post {
+  transform: translateX(-20px);
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.posts .post:nth-child(2n) {
+  transition: all 1s;
+}
+
+.posts .post.active {
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+/* Responsıve Area */
+
+/* Ekran 1100px'den küçükse:
+   .post elemanları alt alta dizilir (tam genişlik alır).
+    Her 2. .post'a geçiş animasyonu uygulanır. */
+
+@media (max-width: 1100px) {
+  .posts .post {
+    width: 100%;
+  }
+  .posts .post:nth-child(2n) {
+    transition: all 0.5s;
+  }
+}

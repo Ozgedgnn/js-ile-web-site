@@ -1,0 +1,22 @@
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 50px);
+  position: relative;
+}
+
+.error i {
+  display: flex;
+  position: absolute;
+  font-size: 10rem;
+  z-index: 5;
+  color: rgba(211, 55, 55, 0.3);
+}
+
+.error span {
+  display: flex;
+  font-size: 4rem;
+  z-index: 10;
+}
